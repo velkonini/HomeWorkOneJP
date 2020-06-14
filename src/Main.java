@@ -1,11 +1,25 @@
 public class Main {
     public static void main(String[] args) {
+        Competitor[] competitors = {
+          new Cat("Murzik", 50,3),
+          new Robot("Optimus Prime", 1000, 20),
+          new Human("Bob", 500, 2)
+        };
 
-        Cat cat = new Cat("Bonya");
+        Obstacle[] obstacles = {
+                new Wall(5),
+                new TreadMill(500),
+        };
 
-        cat.run();
+        for (Competitor c: competitors) {
+            for (Obstacle obstacle : obstacles) {
+                obstacle.doIt(c);
+                if(!c.atDistance()){
+                    break;
+                }
+            }
 
-        Human human = new Human("Jack");
-        human.jump();
+        }
+
     }
 }
